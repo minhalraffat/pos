@@ -1,0 +1,96 @@
+﻿@model POS1.Models.Brand
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Brand</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+           @* @Html.LabelFor(model => model.BName, new { @class = "control-label col-md-2" })*@
+            <span class="control-label col-md-2">Brand Name</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BName)
+                @Html.ValidationMessageFor(model => model.BName)
+            </div>
+        </div>
+
+        <div class="form-group">
+          @*  @Html.LabelFor(model => model.BDesc, new { @class = "control-label col-md-2" })*@
+            <span class="control-label col-md-2">Description</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BDesc)
+                @Html.ValidationMessageFor(model => model.BDesc)
+            </div>
+        </div>
+
+        <div class="form-group">
+          @*  @Html.LabelFor(model => model.Quantity, new { @class = "control-label col-md-2" })*@
+            <span class="control-label col-md-2">Quantity</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Quantity)
+                @Html.ValidationMessageFor(model => model.Quantity)
+            </div>
+        </div>
+
+        <div class="form-group">
+           @* @Html.LabelFor(model => model.Categoryid, "Categoryid", new { @class = "control-label col-md-2" })*@
+            <span class="control-label col-md-2">Category Id</span>
+            <div class="col-md-10">
+                @Html.DropDownList("Categoryid", String.Empty)
+                @Html.ValidationMessageFor(model => model.Categoryid)
+            </div>
+        </div>
+
+        <!--<div class="form-group">
+           @* @Html.LabelFor(model => model.Active, new { @class = "control-label col-md-2" })*@
+            <span class="control-label col-md-2">Active</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Active)
+                @Html.ValidationMessageFor(model => model.Active)
+            </div>
+        </div>-->
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.Createddate, new { @class = "control-label col-md-2" })*@
+            <span class="control-label col-md-2">Created Date</span>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Createddate, new { disabled="disabled"})
+                @Html.ValidationMessageFor(model => model.Createddate)
+            </div>
+        </div>
+
+        <div class="form-group">
+           @* @Html.LabelFor(model => model.LastModified, new { @class = "control-label col-md-2" })*@
+            <span class="control-label col-md-2">Last Modified</span>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.LastModified, new { disabled="disabled"})
+                @Html.ValidationMessageFor(model => model.LastModified)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

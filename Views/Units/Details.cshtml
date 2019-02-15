@@ -1,0 +1,74 @@
+﻿@model POS1.Models.Unit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Unit</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Single)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Single)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Box)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Box)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carton)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carton)
+        </dd>
+
+       <!-- <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>-->
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastModified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Createddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Createddate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Uid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

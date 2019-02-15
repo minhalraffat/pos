@@ -1,0 +1,66 @@
+﻿@model POS1.Models.Account
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Account</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankName)
+        </dd>
+
+       <!-- <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>-->
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Createddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Createddate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastModified)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Accid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

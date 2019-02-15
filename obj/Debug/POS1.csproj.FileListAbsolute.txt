@@ -1,0 +1,47 @@
+E:\Projects\POS1\POS1\bin\POS1.dll
+E:\Projects\POS1\POS1\bin\POS1.pdb
+E:\Projects\POS1\POS1\bin\EntityFramework.dll
+E:\Projects\POS1\POS1\bin\EntityFramework.SqlServer.dll
+E:\Projects\POS1\POS1\bin\Microsoft.Web.Infrastructure.dll
+E:\Projects\POS1\POS1\bin\System.Web.Helpers.dll
+E:\Projects\POS1\POS1\bin\System.Web.Mvc.dll
+E:\Projects\POS1\POS1\bin\System.Web.Razor.dll
+E:\Projects\POS1\POS1\bin\System.Web.Webpages.Deployment.dll
+E:\Projects\POS1\POS1\bin\System.Web.Webpages.dll
+E:\Projects\POS1\POS1\bin\System.Web.Webpages.Razor.dll
+E:\Projects\POS1\POS1\bin\EntityFramework.xml
+E:\Projects\POS1\POS1\bin\EntityFramework.SqlServer.xml
+E:\Projects\POS1\POS1\bin\System.Web.Razor.xml
+E:\Projects\POS1\POS1\bin\System.Web.Webpages.xml
+E:\Projects\POS1\POS1\bin\System.Web.Webpages.Deployment.xml
+E:\Projects\POS1\POS1\bin\System.Web.Webpages.Razor.xml
+E:\Projects\POS1\POS1\bin\System.Web.Helpers.xml
+E:\Projects\POS1\POS1\bin\System.Web.Mvc.xml
+E:\Projects\POS1\POS1\obj\Debug\POS1.dll
+E:\Projects\POS1\POS1\obj\Debug\POS1.pdb
+E:\Projects\POS1\POS1\obj\Debug\POS1.csprojResolveAssemblyReference.cache
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\POS1.dll.config
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\POS1.dll
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\POS1.pdb
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\EntityFramework.dll
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\EntityFramework.SqlServer.dll
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\Microsoft.Web.Infrastructure.dll
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\System.Web.Helpers.dll
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\System.Web.Mvc.dll
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\System.Web.Razor.dll
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\System.Web.Webpages.Deployment.dll
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\System.Web.Webpages.dll
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\System.Web.Webpages.Razor.dll
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\EntityFramework.xml
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\EntityFramework.SqlServer.xml
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\System.Web.Razor.xml
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\System.Web.Webpages.xml
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\System.Web.Webpages.Deployment.xml
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\System.Web.Webpages.Razor.xml
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\System.Web.Helpers.xml
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\bin\System.Web.Mvc.xml
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\obj\Debug\POS1.csprojAssemblyReference.cache
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\obj\Debug\POS1.csproj.CoreCompileInputs.cache
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\obj\Debug\POS1.csproj.CopyComplete
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\obj\Debug\POS1.dll
+C:\MINHAL PC\Desktop\minhal\office work (CC)\POS1\POS1\obj\Debug\POS1.pdb

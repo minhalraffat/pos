@@ -1,0 +1,51 @@
+﻿@model IEnumerable<POS1.Models.Unit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Units</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="fresh-datatables">
+    <table id="fresh-datatables" class="table table-striped table-no-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Unit Name</th>
+                <th>Single</th>     
+                <th>Box</th>
+                 <th>Carton</th>       
+                <th class="disabled-sorting">Actions</th>
+            </tr>
+        </thead>
+        
+    </table>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        TableLoad();
+
+    });
+
+    function TableLoad() {
+        $('#fresh-datatables').DataTable({
+            "searching": true,
+            "ordering": true,
+            "pagingType": "full_numbers",
+            "ajax": "/Units/getUnit",
+            "columns": [
+                { "data": "UName" },
+
+                { "data": "Single" },
+                { "data": "Box" },
+                { "data": "Carton" },
+                { "data": "Action" }
+            ]
+        });
+    }
+</script>

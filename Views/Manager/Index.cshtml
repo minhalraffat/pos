@@ -1,0 +1,143 @@
+﻿@model IEnumerable<POS1.Models.Company>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Company</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<div class="fresh-datatables">
+    <table id="fresh-datatables" class="table table-striped table-no-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Address</th>                
+                <th class="disabled-sorting">Actions</th>
+            </tr>
+        </thead>
+        
+    </table>
+</div>
+
+@*<script type="text/javascript">  
+    $(document).ready(function () {  
+        $('fresh-datatables').DataTable({
+            "searching": true,  
+            "ordering": true,  
+            "pagingType": "full_numbers",  
+            "ajax": "Manager/getCompany",  
+            "columns": [  
+                { "data": "ComName" },  
+                { "data": "ComAdd" }
+                
+            ]  
+        });  
+    });  
+</script>  *@
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        TableLoad();
+       
+
+
+        //$('#fresh-datatables').DataTable({
+        //    "searching": true,
+        //    "ordering": true,
+           
+        //    "pagingType": "full_numbers",
+        //    "responsive": true,
+        //    "ajax": "Manager/getCompany",
+        //    "columns": [
+        //       { "data": "ComName" },
+        //        { "data": "ComAdd" },
+        //    ]
+        //});
+
+
+        //$('#fresh-datatables').DataTable({
+        //    "pagingType": "full_numbers",
+        //    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+        //    responsive: true,
+        //    language: {
+        //        search: "_INPUT_",
+        //        searchPlaceholder: "Search records",
+        //    }
+
+        //});
+       
+        //$('#fresh-datatables').dataTable({
+        //    "pagingType": "full_numbers",
+        //    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+        //      responsive: true,
+        //      language: {
+        //          search: "_INPUT_",
+        //          searchPlaceholder: "Search records",
+        //          "sAjaxSource": "Manager/getCompany",
+        //         // "bProcessing": true,
+        //          //"columns": [
+        //          //                {
+        //          //                    "data": "Comid",
+        //          //                    "bSearchable": false,
+        //          //                    "bSortable": false,
+        //          //                    "fnRender": function (oObj) {
+        //          //                        return '<a href=\"Details/' +
+        //          //                        oObj.aData[0] + '\">View</a>';
+        //          //                    }
+        //          //                },
+        //          //                { "data": "ComName" },
+        //          //                { "data": "ComAdd" }
+                  
+        //          //]
+        //          "columns": [
+        //        { "data": "ComName" },
+        //        { "data": "ComAdd" },
+               
+        //          ]
+        //      }
+        //});
+
+
+        //var table = $('#fresh-datatables').DataTable();
+        //// Edit record
+        //table.on('click', '.edit', function () {
+        //    $tr = $(this).closest('tr');
+
+        //    var data = table.row($tr).data();
+        //    alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+        //});
+
+        //// Delete a record
+        //table.on('click', '.remove', function (e) {
+        //    $tr = $(this).closest('tr');
+        //    table.row($tr).remove().draw();
+        //    e.preventDefault();
+        //});
+
+        ////Like record
+        //table.on('click', '.like', function () {
+        //    alert('You clicked on Like button');
+        //});
+    });
+
+    function TableLoad() {       
+        $('#fresh-datatables').DataTable({
+            "searching": true,
+            "ordering": true,
+            "pagingType": "full_numbers",
+            "ajax": "/Manager/getCompany",
+            "columns": [
+                { "data": "ComName" },
+                { "data": "ComAdd" },
+                { "data": "Action" }
+            ]
+        });
+    }
+</script>

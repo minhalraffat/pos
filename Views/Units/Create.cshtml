@@ -1,0 +1,89 @@
+﻿@model POS1.Models.Unit
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Unit</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UName)
+                @Html.ValidationMessageFor(model => model.UName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Single, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Single)
+                @Html.ValidationMessageFor(model => model.Single)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Box, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Box)
+                @Html.ValidationMessageFor(model => model.Box)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Carton, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Carton)
+                @Html.ValidationMessageFor(model => model.Carton)
+            </div>
+        </div>
+
+       @* <div class="form-group">
+            @Html.LabelFor(model => model.Active, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Active)
+                @Html.ValidationMessageFor(model => model.Active)
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastModified, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.LastModified, new { disabled="disabled"})
+                @Html.ValidationMessageFor(model => model.LastModified)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Createddate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Createddate, new { disabled="disabled"})
+                @Html.ValidationMessageFor(model => model.Createddate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

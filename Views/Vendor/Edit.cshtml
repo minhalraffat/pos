@@ -1,0 +1,98 @@
+﻿@model POS1.Models.Vendor
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Vendor</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Vid)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VName)
+                @Html.ValidationMessageFor(model => model.VName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VContactNumber, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VContactNumber)
+                @Html.ValidationMessageFor(model => model.VContactNumber)
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Active, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Active)
+                @Html.ValidationMessageFor(model => model.Active)
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CreatedDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.CreatedDate, new { disabled="disabled"})
+                @Html.ValidationMessageFor(model => model.CreatedDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastModified, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastModified)
+                @Html.ValidationMessageFor(model => model.LastModified)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Remarks, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Remarks)
+                @Html.ValidationMessageFor(model => model.Remarks)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Companyid, "Companyid", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Companyid", String.Empty)
+                @Html.ValidationMessageFor(model => model.Companyid)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Accid, "Accid", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Accid", String.Empty)
+                @Html.ValidationMessageFor(model => model.Accid)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

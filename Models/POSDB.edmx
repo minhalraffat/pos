@@ -1,0 +1,572 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="POSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="POSModelStoreContainer">
+          <EntitySet Name="Account" EntityType="POSModel.Store.Account" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Brand" EntityType="POSModel.Store.Brand" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Category" EntityType="POSModel.Store.Category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Company" EntityType="POSModel.Store.Company" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Item" EntityType="POSModel.Store.Item" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="POSModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Unit" EntityType="POSModel.Store.Unit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="POSModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Vendor" EntityType="POSModel.Store.Vendor" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Brand_Category" Association="POSModel.Store.FK_Brand_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Brand" EntitySet="Brand" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_Brand" Association="POSModel.Store.FK_Item_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_Unit" Association="POSModel.Store.FK_Item_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vendor_Account" Association="POSModel.Store.FK_Vendor_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Vendor" EntitySet="Vendor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vendor_Company" Association="POSModel.Store.FK_Vendor_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Vendor" EntitySet="Vendor" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Accid" />
+          </Key>
+          <Property Name="Accid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AccName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AccNum" Type="int" Nullable="false" />
+          <Property Name="BankName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Createddate" Type="date" Nullable="false" />
+          <Property Name="LastModified" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Bid" />
+          </Key>
+          <Property Name="Bid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="BDesc" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Categoryid" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Createddate" Type="date" Nullable="false" />
+          <Property Name="LastModified" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Cid" />
+          </Key>
+          <Property Name="Cid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CDes" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Createddate" Type="date" Nullable="false" />
+          <Property Name="LastModified" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Comid" />
+          </Key>
+          <Property Name="Comid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ComName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ComAdd" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Createddate" Type="date" Nullable="false" />
+          <Property Name="LastModified" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Iid" />
+          </Key>
+          <Property Name="Iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="brandid" Type="int" Nullable="false" />
+          <Property Name="unitid" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Createddate" Type="date" Nullable="false" />
+          <Property Name="LastModified" Type="date" Nullable="false" />
+          <Property Name="Genericformula" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="Uid" />
+          </Key>
+          <Property Name="Uid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Single" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Box" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Carton" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="LastModified" Type="date" Nullable="false" />
+          <Property Name="Createddate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Userid" />
+          </Key>
+          <Property Name="Userid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="UserType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="LastModified" Type="date" Nullable="false" />
+          <Property Name="Createddate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="Vid" />
+          </Key>
+          <Property Name="Vid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="VName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="VContactNumber" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="date" Nullable="false" />
+          <Property Name="LastModified" Type="date" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="Companyid" Type="int" Nullable="false" />
+          <Property Name="Accid" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Brand_Category">
+          <End Role="Category" Type="POSModel.Store.Category" Multiplicity="1" />
+          <End Role="Brand" Type="POSModel.Store.Brand" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Cid" />
+            </Principal>
+            <Dependent Role="Brand">
+              <PropertyRef Name="Categoryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_Brand">
+          <End Role="Brand" Type="POSModel.Store.Brand" Multiplicity="1" />
+          <End Role="Item" Type="POSModel.Store.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Bid" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="brandid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_Unit">
+          <End Role="Unit" Type="POSModel.Store.Unit" Multiplicity="1" />
+          <End Role="Item" Type="POSModel.Store.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="unitid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vendor_Account">
+          <End Role="Account" Type="POSModel.Store.Account" Multiplicity="1" />
+          <End Role="Vendor" Type="POSModel.Store.Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Accid" />
+            </Principal>
+            <Dependent Role="Vendor">
+              <PropertyRef Name="Accid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vendor_Company">
+          <End Role="Company" Type="POSModel.Store.Company" Multiplicity="1" />
+          <End Role="Vendor" Type="POSModel.Store.Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Comid" />
+            </Principal>
+            <Dependent Role="Vendor">
+              <PropertyRef Name="Companyid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="POSModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="POSEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="POSModel.Account" />
+          <EntitySet Name="Brands" EntityType="POSModel.Brand" />
+          <EntitySet Name="Categories" EntityType="POSModel.Category" />
+          <EntitySet Name="Companies" EntityType="POSModel.Company" />
+          <EntitySet Name="Items" EntityType="POSModel.Item" />
+          <EntitySet Name="sysdiagrams" EntityType="POSModel.sysdiagram" />
+          <EntitySet Name="Units" EntityType="POSModel.Unit" />
+          <EntitySet Name="Users" EntityType="POSModel.User" />
+          <EntitySet Name="Vendors" EntityType="POSModel.Vendor" />
+          <AssociationSet Name="FK_Vendor_Account" Association="POSModel.FK_Vendor_Account">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Vendor" EntitySet="Vendors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Brand_Category" Association="POSModel.FK_Brand_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Brand" EntitySet="Brands" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_Brand" Association="POSModel.FK_Item_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vendor_Company" Association="POSModel.FK_Vendor_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Vendor" EntitySet="Vendors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_Unit" Association="POSModel.FK_Item_Unit">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Accid" />
+          </Key>
+          <Property Name="Accid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AccName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AccNum" Type="Int32" Nullable="false" />
+          <Property Name="BankName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Createddate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Vendors" Relationship="POSModel.FK_Vendor_Account" FromRole="Account" ToRole="Vendor" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Bid" />
+          </Key>
+          <Property Name="Bid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="BName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="BDesc" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Categoryid" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Createddate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Category" Relationship="POSModel.FK_Brand_Category" FromRole="Brand" ToRole="Category" />
+          <NavigationProperty Name="Items" Relationship="POSModel.FK_Item_Brand" FromRole="Brand" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Cid" />
+          </Key>
+          <Property Name="Cid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CDes" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Createddate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Brands" Relationship="POSModel.FK_Brand_Category" FromRole="Category" ToRole="Brand" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Comid" />
+          </Key>
+          <Property Name="Comid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ComName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ComAdd" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Createddate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Vendors" Relationship="POSModel.FK_Vendor_Company" FromRole="Company" ToRole="Vendor" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Iid" />
+          </Key>
+          <Property Name="Iid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="brandid" Type="Int32" Nullable="false" />
+          <Property Name="unitid" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Createddate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Genericformula" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Brand" Relationship="POSModel.FK_Item_Brand" FromRole="Item" ToRole="Brand" />
+          <NavigationProperty Name="Unit" Relationship="POSModel.FK_Item_Unit" FromRole="Item" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="Uid" />
+          </Key>
+          <Property Name="Uid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Single" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Box" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Carton" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Createddate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Items" Relationship="POSModel.FK_Item_Unit" FromRole="Unit" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Userid" />
+          </Key>
+          <Property Name="Userid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserType" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Createddate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="Vid" />
+          </Key>
+          <Property Name="Vid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="VName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="VContactNumber" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Remarks" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Companyid" Type="Int32" Nullable="false" />
+          <Property Name="Accid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="POSModel.FK_Vendor_Account" FromRole="Vendor" ToRole="Account" />
+          <NavigationProperty Name="Company" Relationship="POSModel.FK_Vendor_Company" FromRole="Vendor" ToRole="Company" />
+        </EntityType>
+        <Association Name="FK_Vendor_Account">
+          <End Role="Account" Type="POSModel.Account" Multiplicity="1" />
+          <End Role="Vendor" Type="POSModel.Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Accid" />
+            </Principal>
+            <Dependent Role="Vendor">
+              <PropertyRef Name="Accid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Brand_Category">
+          <End Role="Category" Type="POSModel.Category" Multiplicity="1" />
+          <End Role="Brand" Type="POSModel.Brand" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Cid" />
+            </Principal>
+            <Dependent Role="Brand">
+              <PropertyRef Name="Categoryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_Brand">
+          <End Role="Brand" Type="POSModel.Brand" Multiplicity="1" />
+          <End Role="Item" Type="POSModel.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Bid" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="brandid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vendor_Company">
+          <End Role="Company" Type="POSModel.Company" Multiplicity="1" />
+          <End Role="Vendor" Type="POSModel.Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Comid" />
+            </Principal>
+            <Dependent Role="Vendor">
+              <PropertyRef Name="Companyid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_Unit">
+          <End Role="Unit" Type="POSModel.Unit" Multiplicity="1" />
+          <End Role="Item" Type="POSModel.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="unitid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="POSModelStoreContainer" CdmEntityContainer="POSEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="POSModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Accid" ColumnName="Accid" />
+                <ScalarProperty Name="AccName" ColumnName="AccName" />
+                <ScalarProperty Name="AccNum" ColumnName="AccNum" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="POSModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="Bid" ColumnName="Bid" />
+                <ScalarProperty Name="BName" ColumnName="BName" />
+                <ScalarProperty Name="BDesc" ColumnName="BDesc" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Categoryid" ColumnName="Categoryid" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="POSModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Cid" ColumnName="Cid" />
+                <ScalarProperty Name="CName" ColumnName="CName" />
+                <ScalarProperty Name="CDes" ColumnName="CDes" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="POSModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="Comid" ColumnName="Comid" />
+                <ScalarProperty Name="ComName" ColumnName="ComName" />
+                <ScalarProperty Name="ComAdd" ColumnName="ComAdd" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="POSModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="Iid" ColumnName="Iid" />
+                <ScalarProperty Name="IName" ColumnName="IName" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="brandid" ColumnName="brandid" />
+                <ScalarProperty Name="unitid" ColumnName="unitid" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="Genericformula" ColumnName="Genericformula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="POSModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Units">
+            <EntityTypeMapping TypeName="POSModel.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="UName" ColumnName="UName" />
+                <ScalarProperty Name="Single" ColumnName="Single" />
+                <ScalarProperty Name="Box" ColumnName="Box" />
+                <ScalarProperty Name="Carton" ColumnName="Carton" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="POSModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendors">
+            <EntityTypeMapping TypeName="POSModel.Vendor">
+              <MappingFragment StoreEntitySet="Vendor">
+                <ScalarProperty Name="Vid" ColumnName="Vid" />
+                <ScalarProperty Name="VName" ColumnName="VName" />
+                <ScalarProperty Name="VContactNumber" ColumnName="VContactNumber" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Companyid" ColumnName="Companyid" />
+                <ScalarProperty Name="Accid" ColumnName="Accid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="POSModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="POSEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="POSModel.Account" />
+    <EntitySet Name="Brands" EntityType="POSModel.Brand" />
+    <EntitySet Name="Categories" EntityType="POSModel.Category" />
+    <EntitySet Name="Companies" EntityType="POSModel.Company" />
+    <EntitySet Name="Items" EntityType="POSModel.Item" />
+    <EntitySet Name="sysdiagrams" EntityType="POSModel.sysdiagram" />
+    <EntitySet Name="Units" EntityType="POSModel.Unit" />
+    <EntitySet Name="Users" EntityType="POSModel.User" />
+    <EntitySet Name="Vendors" EntityType="POSModel.Vendor" />
+    <AssociationSet Name="FK_Vendor_Account" Association="POSModel.FK_Vendor_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="Vendor" EntitySet="Vendors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Brand_Category" Association="POSModel.FK_Brand_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Brand" EntitySet="Brands" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Item_Brand" Association="POSModel.FK_Item_Brand">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vendor_Company" Association="POSModel.FK_Vendor_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Vendor" EntitySet="Vendors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Item_Unit" Association="POSModel.FK_Item_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Accid" />
+    </Key>
+    <Property Name="Accid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="AccName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AccNum" Type="Int32" Nullable="false" />
+    <Property Name="BankName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Vendors" Relationship="POSModel.FK_Vendor_Account" FromRole="Account" ToRole="Vendor" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="Bid" />
+    </Key>
+    <Property Name="Bid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="BName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="BDesc" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Categoryid" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Category" Relationship="POSModel.FK_Brand_Category" FromRole="Brand" ToRole="Category" />
+    <NavigationProperty Name="Items" Relationship="POSModel.FK_Item_Brand" FromRole="Brand" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Cid" />
+    </Key>
+    <Property Name="Cid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CDes" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Brands" Relationship="POSModel.FK_Brand_Category" FromRole="Category" ToRole="Brand" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Comid" />
+    </Key>
+    <Property Name="Comid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ComName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ComAdd" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Vendors" Relationship="POSModel.FK_Vendor_Company" FromRole="Company" ToRole="Vendor" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Iid" />
+    </Key>
+    <Property Name="Iid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="IName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="brandid" Type="Int32" Nullable="false" />
+    <Property Name="unitid" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Createddate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Genericformula" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Brand" Relationship="POSModel.FK_Item_Brand" FromRole="Item" ToRole="Brand" />
+    <NavigationProperty Name="Unit" Relationship="POSModel.FK_Item_Unit" FromRole="Item" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="Uid" />
+    </Key>
+    <Property Name="Uid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Single" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Box" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Carton" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Createddate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Items" Relationship="POSModel.FK_Item_Unit" FromRole="Unit" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Userid" />
+    </Key>
+    <Property Name="Userid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="UserType" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Createddate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="Vid" />
+    </Key>
+    <Property Name="Vid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="VName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="VContactNumber" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Remarks" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Companyid" Type="Int32" Nullable="false" />
+    <Property Name="Accid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="POSModel.FK_Vendor_Account" FromRole="Vendor" ToRole="Account" />
+    <NavigationProperty Name="Company" Relationship="POSModel.FK_Vendor_Company" FromRole="Vendor" ToRole="Company" />
+  </EntityType>
+  <Association Name="FK_Vendor_Account">
+    <End Role="Account" Type="POSModel.Account" Multiplicity="1" />
+    <End Role="Vendor" Type="POSModel.Vendor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Accid" />
+      </Principal>
+      <Dependent Role="Vendor">
+        <PropertyRef Name="Accid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Brand_Category">
+    <End Role="Category" Type="POSModel.Category" Multiplicity="1" />
+    <End Role="Brand" Type="POSModel.Brand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Cid" />
+      </Principal>
+      <Dependent Role="Brand">
+        <PropertyRef Name="Categoryid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Item_Brand">
+    <End Role="Brand" Type="POSModel.Brand" Multiplicity="1" />
+    <End Role="Item" Type="POSModel.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="Bid" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="brandid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vendor_Company">
+    <End Role="Company" Type="POSModel.Company" Multiplicity="1" />
+    <End Role="Vendor" Type="POSModel.Vendor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Comid" />
+      </Principal>
+      <Dependent Role="Vendor">
+        <PropertyRef Name="Companyid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Item_Unit">
+    <End Role="Unit" Type="POSModel.Unit" Multiplicity="1" />
+    <End Role="Item" Type="POSModel.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Uid" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="unitid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

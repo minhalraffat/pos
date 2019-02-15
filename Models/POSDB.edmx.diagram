@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="222803d7f0964baf86cdf6a3cd689ef8" Name="Diagram1">
+        <EntityTypeShape EntityType="POSModel.Account" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Brand" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Category" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Company" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Item" Width="1.5" PointX="10.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.sysdiagram" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Unit" Width="1.5" PointX="8" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.User" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSModel.Vendor" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="POSModel.FK_Vendor_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="POSModel.FK_Brand_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="POSModel.FK_Item_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="POSModel.FK_Vendor_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="POSModel.FK_Item_Unit" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
